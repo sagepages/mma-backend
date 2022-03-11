@@ -1,0 +1,3 @@
+# Get weight classes
+SELECT DISTINCT division from fighters
+
