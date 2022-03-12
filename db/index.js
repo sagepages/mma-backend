@@ -4,11 +4,10 @@ const dotenv = require("dotenv")
 dotenv.config()
 
 const pool = new Pool({
-    user: process.env.USER,
-    host: process.env.HOST,
-    database: process.env.DATABASE,
-    password: process.env.PASSWORD,
-    port: 5432
+    connectionString: process.env.HEROKU_DB,
+    ssl: {
+        rejectUnauthorized: false
+      }
 })
 
 pool.on('error', (err, client) => {
